@@ -1,0 +1,22 @@
+﻿@page "/samples/todos"
+@using PureBlazor.Learn.Shared
+@inject YourApiClient ApiClient
+
+<PageTitle>API Example</PageTitle>
+
+<h1>API Example</h1>
+<div>
+    <pre>
+<code>
+            @Todos
+</code>
+</pre>
+</div>
+@code {
+    public string Todos { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Todos = await ApiClient.GetTodos();
+    }
+
+}
